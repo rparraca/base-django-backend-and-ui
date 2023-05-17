@@ -26,10 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv('DJANGO_DEBUG').lower() == 'true'
-
-ALLOWED_HOSTS = os.getenv('DJANGO_ALLOWED_HOSTS').split(',') # ['vscode.rodrigoparra.com']
+ALLOWED_HOSTS = os.getenv('DJANGO_ALLOWED_HOSTS').split(',')
 
 # Authentication User Model
 AUTH_USER_MODEL = 'app_user.AppUser'
@@ -46,7 +43,6 @@ INSTALLED_APPS = [
     'app_user',
     'rest_framework',
     'rest_framework_simplejwt',
-    'drf_yasg',
 ]
 
 # Activation / Reset Pwd Codes
@@ -95,25 +91,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
-
-# Password validation
-# https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
-
-AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
-] if not DEBUG else []
 
 
 # Internationalization
