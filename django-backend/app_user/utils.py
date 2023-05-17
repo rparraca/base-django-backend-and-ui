@@ -1,10 +1,10 @@
-import random
+import secrets
 import string
 from django.conf import settings
 
 def generate_code(length):
     characters = string.ascii_letters + string.digits
-    code = ''.join(random.choice(characters) for _ in range(length))
+    code = ''.join(secrets.choice(characters) for _ in range(length))
     return code
 
 def generate_activation_code():
