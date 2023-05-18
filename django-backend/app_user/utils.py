@@ -2,6 +2,9 @@ import secrets
 import string
 from django.conf import settings
 
+# TODO: Delete these utilities, they're backed into 
+# security code manager
+
 def generate_code(length):
     characters = string.ascii_letters + string.digits
     code = ''.join(secrets.choice(characters) for _ in range(length))
